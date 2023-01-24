@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>Jeu de la vie</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        canvas {
+            margin: 0;
+            border: 0;
+        }
+        
+        #commands {
+            position: fixed;
+            bottom: 8px;
+            left: 8px;
+            opacity: .2;
+            transition: .1s ease;
+        }
+        
+        button {
+            background: black;
+            color: white;
+            border: none;
+            transition: .1s ease;
+            padding: .4rem;
+            font-family: monospace;
+            height: 32px;
+            line-height: 0px;
+            border-radius: .4rem;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: gray;
+        }
+        
+        #commands:hover {
+            opacity: 1;
+        }
+        
+        #patterns-list-container {
+            display: inline-block;
+            position: relative;
+        }
+        
+        #patterns-list {
+            display: none;
+            padding: .4rem .4rem .8rem .4rem;
+            position: absolute;
+            width: 200px;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            font-family: monospace;
+        }
+        
+        #patterns-list>* {
+            display: block;
+            margin: auto;
+        }
+        
+        #patterns-img {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(100%, -110%);
+            margin-bottom: .8rem;
+            width: 128px;
+            height: 128px;
+            background-size: cover;
+        }
+        
+        #patterns-list-container:hover #patterns-list {
+            display: block;
+        }
+        
+        #patterns-list-container:hover #patterns-img {
+            display: block;
+        }
+        
+        .sep {
+            display: inline-block;
+            width: .2rem;
+        }
+        
+        button {
+            margin: .01rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="commands">
+        <button id="button-play-pause" title="Lecture/Pause">▶</button>
+        <button id="button-next" title="État suivant">⏭</button>
+        <div class="sep"></div>
+        <button id="button-speed-slow" title="Lent">🐢</button>
+        <button id="button-speed-medium" title="Normal">🏃‍♂️</button>
+        <button id="button-speed-fast" title="Rapide">🚄</button>
+        <div class="sep"></div>
+        <div id="patterns-list-container">
+            <button title="Glossaire">📕</button>
+            <div id="patterns-list"></div>
+            <div id="patterns-img"></div>
+        </div>
+        <button id="button-canvas-home" title="Réinitialiser la vue">🏠</button>
+        <button id="button-canvas-random" title="Placer des cellules aléatoires">🎲</button>
+        <button id="button-canvas-erase" title="Effacer toutes les cellules">✖</button>
+    </div>
+    <canvas id="canvas"></canvas>
+    <script src="master.js"></script>
+</body>
+
+</html>
